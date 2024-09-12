@@ -38,7 +38,7 @@ exports.login = (req, res) => {
             }
 
             const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-                expiresIn: '1h',
+                expiresIn: '1000000000d'
             });
 
             // Store token in the database
@@ -72,3 +72,7 @@ exports.logout = (req, res) => {
         res.json({ message: 'Logged out successfully' });
     });
 };
+
+exports.auth =  (req, res) => {
+    res.json({ message: 'This is a protected route', userId: req.userId });
+}

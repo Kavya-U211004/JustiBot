@@ -60,7 +60,7 @@ app.use(express.json());
 // Routes
 app.use('/api', feedbackRoutes);
 app.use('/api/auth', authRoutes);
-app.use('/api/chat', protect, chatRoutes); // Protect chat routes
+app.use('/api/chat', chatRoutes); // Protect chat routes
 
 const PORT = process.env.PORT || 5000;
 

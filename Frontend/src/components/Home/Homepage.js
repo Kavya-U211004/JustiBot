@@ -1,8 +1,10 @@
 import React, {useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import './Homepage.css';
 
 const HomePage = () => {
+
+  const isAuthenticated = !!localStorage.getItem('token');
 
   // useEffect(() => {
   //   const bubbleCount = 8; // Number of bubbles you want
@@ -21,6 +23,7 @@ const HomePage = () => {
   // }, []);
 
   return (
+    isAuthenticated ? <Navigate to="/chatbot" /> :
     <div className="homepage">
       <div className="header">Justibot</div>
       <div className="container">
