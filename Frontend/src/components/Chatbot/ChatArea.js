@@ -95,9 +95,11 @@ const ChatArea = ({ isDarkMode }) => {
 
 
     const handleSendMessage = async () => {
+        setInput('');
         if (input.trim() !== '') {
             const userMessage = { type: 'user', text: input };
             setMessages([...messages, userMessage]);
+            
 
             try {
                 // Send the user input to the backend
@@ -117,7 +119,7 @@ const ChatArea = ({ isDarkMode }) => {
 
                 setMessages([...messages, userMessage, botResponse]);
                 setLoading(false);
-                setInput('');
+                
 
                 // Optionally speak the response
                 const utterance = new SpeechSynthesisUtterance(data.response);
